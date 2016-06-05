@@ -18,6 +18,15 @@
 
   });
 
+  app.controller("ReviewController", function(){
+    this.review = {};
+
+    this.addReview = function(product) {
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+  });
+
   var gems = [
     {
       name: 'Azurite',
@@ -33,6 +42,18 @@
         {
           full: 'image/azurite-02-full.jpg',
           thumb: 'image/azurite-02-thumb.jpg'
+        }
+      ],
+      reviews: [
+        {
+          starts: 5,
+          body: "I love this product!",
+          author: "joe@thomas.com",
+        },
+        {
+          starts: 1,
+          body: "This product sucks",
+          author: "tim@hater.com",
         }
       ],
     },
