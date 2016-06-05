@@ -12,6 +12,16 @@
       description: '. . . ',
       canPurchase: true,
       soldOut: false,
+      images: [
+        {
+          full: 'image/azurite-01-full.jpg',
+          thumb: 'image/azurite-01-thumb.jpg'
+        },
+        {
+          full: 'image/azurite-02-full.jpg',
+          thumb: 'image/azurite-02-thumb.jpg'
+        }
+      ],
     },
     {
       name: 'Bloodstone',
@@ -19,6 +29,12 @@
       description: '. . . ',
       canPurchase: true,
       soldOut: false,
+      images: [
+        {
+          full: 'image/bloodstone-01-full.jpg',
+          thumb: 'image/bloodstone-01-thumb.jpg'
+        }
+      ],
     },
     {
       name: 'Zircon',
@@ -26,6 +42,16 @@
       description: '. . . ',
       canPurchase: true,
       soldOut: false,
+      images: [
+        {
+          full: 'image/zircon-01-full.jpg',
+          thumb: 'image/zircon-01-thumb.jpg'
+        },
+        {
+          full: 'image/zircon-02-full.jpg',
+          thumb: 'image/zircon-02-thumb.jpg'
+        }
+      ],
     }
   ];
 })();

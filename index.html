@@ -6,11 +6,55 @@
     <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body ng-controller="StoreController as store">
-    <div ng-repeat="product in store.products" ng-hide="store.product.soldOut">
-      <h1> {{product.name}} </h1>
-      <h2> ${{product.price}} </h2>
-      <p> {{product.description}} <p>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'"
+          ng-hide="store.product.soldOut">
+        <h3>
+          {{product.name}}
+          <en class="pull-right">{{product.price | currency}}</em>
+          <!--img ng-src="{{product.images[0].full}}"/-->
+        </h3>
+
+        <section ng-init="tab = 1">
+          <ul class="nav nav-pills">
+            <li ng-class="{ active: tab === 1}">
+              <a href ng-click="tab = 1">Description</a>
+            </li>
+            <li ng-class="{ active: tab === 2}">
+              <a href ng-click="tab = 2">Spedifications</a>
+            </li>
+            <li ng-class="{ active: tab === 3}">
+              <a href ng-click="tab = 3">Reviews</a>
+            </li>
+          </ul>
+        </section>
+        <div class="panel" ng-show="tab === 1">
+          <h4>Descripcion</h4>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="panel" ng-show="tab === 2">
+          <h4>Specifications</h4>
+          <blockquote>None yet</blockquote>
+        </div>
+        <div class="panel" ng-show="tab === 3">
+          <h4>Reviews</h4>
+          <blockquote>None yet</blockquote>
+        </div>
+
+        <!-- Image Gallery  -->
+        <div class="gallery" ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[0].full}}" />
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{image.thumb}}" />
+            </li>
+          </ul>
+        </div>
+        <p> {{product.description}} <p>
         <button ng-show="store.product.canPurchase">Add to Cart</button>
-    </div>
+      </li>
+    </ul>
   </body>
 </html>
